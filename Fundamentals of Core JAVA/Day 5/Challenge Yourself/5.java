@@ -18,7 +18,7 @@ class Main {
      * So you may not understand this completely.
      */
 
-    // Upper two Trapezium (triangle top half cut)
+    // Upper two Trapezium (triangle top cut in half)
     for (int i = 0; i < h; i++) {
       for (int j = 0; j < w; j++) {
         // First Trapezium

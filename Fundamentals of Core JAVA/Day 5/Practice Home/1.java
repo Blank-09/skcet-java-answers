@@ -16,12 +16,12 @@ class Main {
       return;
     }
 
-    // Top Part
-    int x = n + 1;
-    int y = x * 2 - 1;
-    for (int i = 0; i < x; i++) {
-      for (int j = 0; j < i + x; j++) {
-        if (x + i > j && x - i <= j + 1)
+    // Top Part or First Triangle
+    int m = n + 1;
+    int l = m * 2 - 1;
+    for (int i = 0; i < m; i++) {
+      for (int j = 0; j < i + m; j++) {
+        if (m + i > j && m - i <= j + 1)
           System.out.print('*');
         else
           System.out.print(' ');
@@ -29,11 +29,18 @@ class Main {
       System.out.println();
     }
 
-    // Other Parts
+    /**
+     * Middle Parts (Smaller Triangles)
+     * 
+     * Here the second triangle will be bigger
+     * than the rest of the following triangles
+     */
     for (int k = 0; k < n - 2; k++) {
+      // When k = 0, meaning the second triangle
+      // will be larger than the others
       int a = (k == 0 ? 1 : 2);
       for (int i = 0; i < n - a; i++) {
-        for (int j = 0; j < y; j++) {
+        for (int j = 0; j < l; j++) {
           if (n - i <= j + 1 && i + n > j - 2)
             System.out.print('*');
           else
@@ -43,9 +50,9 @@ class Main {
       }
     }
 
-    // Bottom Stand Part when n < 20
+    // Part: Bottom Stand when n < 20
     for (int i = 0; i < 2 && n < 20; i++) {
-      for (int j = 0; j < y; j++) {
+      for (int j = 0; j < l; j++) {
         if (j == n)
           System.out.print('*');
         else
@@ -56,7 +63,7 @@ class Main {
 
     // Fat Bottom Stand when n == 20
     for (int i = 0; i < 5 && n == 20; i++) {
-      for (int j = 0; j < y; j++) {
+      for (int j = 0; j < l; j++) {
         if (n - i <= j + 1 && i + n > j - 2)
           System.out.print('*');
         else
